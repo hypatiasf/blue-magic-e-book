@@ -1,0 +1,39 @@
+#prologue-right {
+  position: relative;
+}
+
+#message {
+  width: 447px;
+  height: 120px;
+  position: absolute;
+  top: 270px;
+  left: 15px;
+  background-size: cover;
+}
+
+#message-yes {
+  width: 108px;
+  height: 25px;
+  position: absolute;
+  top: 82px;
+  left: 168px;
+  background-size: cover;
+}
+
+#choose-language {
+  width: 360px;
+  height: 32px;
+  position: absolute;
+  background-size: cover;
+  top: 570px;
+  left: 70px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+#choose-language > .language {
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+}

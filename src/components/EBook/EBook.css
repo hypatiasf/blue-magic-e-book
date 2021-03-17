@@ -1,0 +1,20 @@
+:root {
+  --book-width: 1280px;
+  --book-height: 720px;
+}
+
+#e-book {
+  width: var(--book-width);
+  height: var(--book-height);
+}
+
+.section {
+  width: var(--book-width);
+  height: var(--book-height);
+  display: flex;
+}
+
+.page {
+  width: calc(var(--book-width) / 2);
+  height: var(--book-height);
+}
