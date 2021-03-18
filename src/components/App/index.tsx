@@ -5,7 +5,7 @@ import EBook from "../EBook";
 const App: FC = () => {
   return (
     <div className="App">
-      <EBook />
+      <EBook style={{ margin: "0 auto" }} />
     </div>
   );
 };
