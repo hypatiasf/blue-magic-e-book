@@ -1,7 +1,7 @@
 import spells from "./spells";
 
-type Resources = { [key: string]: string };
-type SpellIcons = { [key: number]: string };
+export type Resources = { [key: string]: string };
+export type SpellIcons = { [key: number]: string };
 
 let icons: Resources;
 let descriptions: Resources;
@@ -44,4 +44,21 @@ const getSpellIcons = (fromId: number, toId: number): SpellIcons => {
   return spellIcons;
 };
 
-export { getSpellIcons };
+const getSpellDescription = (spellId: number, spellPage: number): string => {
+  if (!descriptions || !icons) loadAll();
+
+  let fileName = idToFileName(spellId) + "f";
+  if (spells.special.hasOwnProperty(spellId)) {
+    fileName += String.fromCharCode(spellPage + "a".charCodeAt(0));
+  }
+  return descriptions[fileName] ?? "";
+};
+
+const getDerivativeDescription = (spellId: number): string => {
+  if (!descriptions || !icons) loadAll();
+  return spells.special.hasOwnProperty(spellId) && spells.special[spellId].derivative
+    ? idToFileName(spellId) + "t"
+    : "";
+};
+
+export { getSpellIcons, getSpellDescription, getDerivativeDescription };

@@ -1,17 +1,25 @@
 import React from "react";
+import { BookStatus } from "../../hooks/useBookStatus";
 
-interface EBookContextInterface {
-  page: number;
-  spellId: number;
-  spellPage: number;
-  derivativeOpen: boolean;
-}
-
-const EBookContext = React.createContext<EBookContextInterface>({
-  page: 0,
-  spellId: -1,
-  spellPage: 0,
+const EBookContext = React.createContext<BookStatus>({
+  page: 1,
+  viewSpell: { id: -1, page: 1 },
   derivativeOpen: false,
+  derivativeSrc: "",
+  descriptionSrc: "",
+  spellIcons: {},
+  goToPage(page: number): void {
+    page;
+  },
+  goToSpellPage(spellPage: number): void {
+    spellPage;
+  },
+  setDerivativeOpen(open: boolean): void {
+    open;
+  },
+  switchToSpell(spellId: number): void {
+    spellId;
+  },
 });
 
 export default EBookContext;
