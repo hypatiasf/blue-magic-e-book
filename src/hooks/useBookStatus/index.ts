@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import ViewSpell from "./ViewSpell";
 import {
   getDerivativeDescription,
+  getPageNumberIcons,
   getSpellDescription,
+  getSpellIds,
   getSpellIcons,
   SpellIcons,
 } from "../../services/spell/resources";
@@ -13,7 +15,9 @@ export interface BookStatus {
   viewSpell: ViewSpell;
   derivativeOpen: boolean;
 
+  pageNumberIcons: string[];
   spellIcons: SpellIcons;
+  spellIds: string;
   descriptionSrc: string;
   derivativeSrc: string;
 
@@ -24,14 +28,17 @@ export interface BookStatus {
 }
 
 const useBookStatus = (): BookStatus => {
-  const initialViewSpell: ViewSpell = { id: -1, page: 1 };
+  const initialPage = 1;
+  const initialViewSpell: ViewSpell = { id: -1, page: initialPage };
   const initialDerivativeOpen = false;
 
   const [page, setPage] = useState(1);
   const [viewSpell, setViewSpell] = useState<ViewSpell>(initialViewSpell);
   const [derivativeOpen, setDerivativeOpen] = useState(initialDerivativeOpen);
 
+  const [pageNumberIcons, setPageNumberIcons] = useState<string[]>([]);
   const [spellIcons, setSpellIcons] = useState<SpellIcons>({});
+  const [spellIds, setSpellIds] = useState(getSpellIds(initialPage));
   const [descriptionSrc, setDescriptionSrc] = useState("");
   const [derivativeSrc, setDerivativeSrc] = useState("");
 
@@ -40,9 +47,11 @@ const useBookStatus = (): BookStatus => {
     setViewSpell(initialViewSpell);
     setDerivativeOpen(initialDerivativeOpen);
 
-    const firstIcon = (page - 1) * spells.spellsPerPage;
+    const firstIcon = (page - 1) * spells.spellsPerPage + 1;
     const lastIcon = page * spells.spellsPerPage;
+    setPageNumberIcons(getPageNumberIcons(page));
     setSpellIcons(getSpellIcons(firstIcon, lastIcon));
+    setSpellIds(getSpellIds(page));
   };
 
   const switchToSpell = (spellId: number) => {
@@ -71,7 +80,9 @@ const useBookStatus = (): BookStatus => {
     viewSpell,
     derivativeOpen,
 
+    pageNumberIcons,
     spellIcons,
+    spellIds,
     descriptionSrc,
     derivativeSrc,
 

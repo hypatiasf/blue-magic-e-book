@@ -7,7 +7,9 @@ const EBookContext = React.createContext<BookStatus>({
   derivativeOpen: false,
   derivativeSrc: "",
   descriptionSrc: "",
+  pageNumberIcons: [],
   spellIcons: {},
+  spellIds: "",
   goToPage(page: number): void {
     page;
   },

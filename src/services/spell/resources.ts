@@ -25,6 +25,17 @@ const idToFileName = (spellId: number): string => {
   else return `${spellId}`;
 };
 
+const getPageNumberIcons = (activePage: number): string[] => {
+  if (!descriptions || !icons) loadAll();
+
+  const pageIcons = [];
+  for (let page = 1; page <= spells.page; page++) {
+    const fileName = `p${page}` + (page === activePage ? "l" : "");
+    pageIcons.push(icons[fileName]);
+  }
+  return pageIcons;
+};
+
 const getSpellIcons = (fromId: number, toId: number): SpellIcons => {
   if (!descriptions || !icons) loadAll();
 
@@ -44,12 +55,18 @@ const getSpellIcons = (fromId: number, toId: number): SpellIcons => {
   return spellIcons;
 };
 
+const getSpellIds = (page: number): string => {
+  if (!descriptions || !icons) loadAll();
+
+  return descriptions[`P${page}n`];
+};
+
 const getSpellDescription = (spellId: number, spellPage: number): string => {
   if (!descriptions || !icons) loadAll();
 
   let fileName = idToFileName(spellId) + "f";
   if (spells.special.hasOwnProperty(spellId)) {
-    fileName += String.fromCharCode(spellPage + "a".charCodeAt(0));
+    fileName += "_" + String.fromCharCode(spellPage - 1 + "a".charCodeAt(0));
   }
   return descriptions[fileName] ?? "";
 };
@@ -61,4 +78,4 @@ const getDerivativeDescription = (spellId: number): string => {
     : "";
 };
 
-export { getSpellIcons, getSpellDescription, getDerivativeDescription };
+export { getPageNumberIcons, getSpellIcons, getSpellIds, getSpellDescription, getDerivativeDescription };
