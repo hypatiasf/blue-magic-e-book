@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import BookBackground from "../../assets/bg/book.png";
+import "./EBookContent.css";
 import EBookContext from "../../context/EBookContent";
 import useBookStatus from "../../hooks/useBookStatus";
 import SpellList from "../SpellList";
@@ -12,6 +13,7 @@ const EBookContent: FC = () => {
     <EBookContext.Provider value={bookStatus}>
       <div className={"section"} style={{ backgroundImage: `url(${BookBackground})` }}>
         <div className={"page"}>
+          <div id={"spell-id"} />
           <SpellList />
         </div>
         <div className={"page"}>

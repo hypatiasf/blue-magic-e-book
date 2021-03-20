@@ -1,0 +1,12 @@
+#spell-list {
+  display: grid;
+  grid-template-rows: repeat(4, 25%);
+  grid-template-columns: repeat(4, 25%);
+
+  width: 432px;
+  height: 384px;
+
+  position: absolute;
+  top: 157px;
+  left: 175px;
+}

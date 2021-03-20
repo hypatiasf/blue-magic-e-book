@@ -17,4 +17,5 @@
 .page {
   width: calc(var(--book-width) / 2);
   height: var(--book-height);
+  position: relative;
 }
