@@ -8,6 +8,7 @@ import {
   getSpellIds,
   getSpellIcons,
   SpellIcons,
+  getDerivativeIcon,
 } from "../../services/spell/resources";
 import spells from "../../services/spell/spells";
 
@@ -21,6 +22,7 @@ export interface BookStatus {
   spellIds: string;
   spellPageIcons: string[];
   descriptionSrc: string;
+  derivativeIcon: string;
   derivativeSrc: string;
 
   goToPage(page: number): void;
@@ -43,6 +45,7 @@ const useBookStatus = (): BookStatus => {
   const [spellIds, setSpellIds] = useState(getSpellIds(initialPage));
   const [spellPageIcons, setSpellPageIcons] = useState<string[]>([]);
   const [descriptionSrc, setDescriptionSrc] = useState("");
+  const [derivativeIcon, setDerivativeIcon] = useState("");
   const [derivativeSrc, setDerivativeSrc] = useState("");
 
   const goToPage = (page: number) => {
@@ -56,11 +59,15 @@ const useBookStatus = (): BookStatus => {
     setSpellIcons(getSpellIcons(firstIcon, lastIcon));
     setSpellIds(getSpellIds(page));
     setSpellPageIcons([]);
+    setDerivativeSrc("");
   };
 
   const switchToSpell = (spellId: number) => {
     setViewSpell({ ...initialViewSpell, id: spellId });
     setSpellPageIcons(getSpellPageIcons(spellId));
+    setDerivativeOpen(initialDerivativeOpen);
+    setDerivativeIcon(getDerivativeIcon(spellId));
+    setDerivativeSrc(getDerivativeDescription(spellId));
   };
 
   const goToSpellPage = (spellPage: number) => {
@@ -75,11 +82,6 @@ const useBookStatus = (): BookStatus => {
     setDescriptionSrc(getSpellDescription(viewSpell.id, viewSpell.page));
   }, [viewSpell]);
 
-  useEffect(() => {
-    if (derivativeOpen) setDerivativeSrc(getDerivativeDescription(viewSpell.id));
-    else setDerivativeSrc("");
-  }, [derivativeOpen]);
-
   return {
     page,
     viewSpell,
@@ -90,6 +92,7 @@ const useBookStatus = (): BookStatus => {
     spellIds,
     spellPageIcons,
     descriptionSrc,
+    derivativeIcon,
     derivativeSrc,
 
     goToPage,

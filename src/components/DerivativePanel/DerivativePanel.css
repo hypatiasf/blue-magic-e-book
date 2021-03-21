@@ -1,0 +1,16 @@
+#derivative-icon {
+  width: 32px;
+  height: 32px;
+
+  position: absolute;
+  top: 192px;
+  left: 159px;
+}
+
+#derivative-description {
+  width: 506px;
+  height: 160px;
+
+  position: absolute;
+  top: 16px;
+}

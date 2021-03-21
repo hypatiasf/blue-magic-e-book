@@ -100,11 +100,18 @@ const getSpellPageIcons = (spellId: number): string[] => {
   return spellPageIcons;
 };
 
+const getDerivativeIcon = (spellId: number): string => {
+  if (!descriptions || !icons) loadAll();
+  const fileName =
+    spells.special.hasOwnProperty(spellId) && spells.special[spellId].derivative ? idToFileName(spellId) + "b" : "";
+  return icons[fileName];
+};
+
 const getDerivativeDescription = (spellId: number): string => {
   if (!descriptions || !icons) loadAll();
-  return spells.special.hasOwnProperty(spellId) && spells.special[spellId].derivative
-    ? idToFileName(spellId) + "t"
-    : "";
+  const fileName =
+    spells.special.hasOwnProperty(spellId) && spells.special[spellId].derivative ? idToFileName(spellId) + "t" : "";
+  return descriptions[fileName];
 };
 
 export {
@@ -113,5 +120,6 @@ export {
   getSpellIds,
   getSpellDescription,
   getSpellPageIcons,
+  getDerivativeIcon,
   getDerivativeDescription,
 };

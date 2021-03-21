@@ -4,24 +4,3 @@
 
   position: relative;
 }
-
-#spell-page-icons {
-  width: 400px;
-  height: 22px;
-
-  display: grid;
-  grid-template-columns: repeat(10, 22px);
-  grid-template-rows: 22px;
-  column-gap: 15px;
-
-  position: absolute;
-  left: 116px;
-  top: 434px;
-}
-
-.spell-page-icon {
-  width: 100%;
-  height: 100%;
-
-  background-size: cover;
-}
