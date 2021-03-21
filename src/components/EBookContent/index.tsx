@@ -14,9 +14,9 @@ const EBookContent: FC = () => {
     <EBookContext.Provider value={bookStatus}>
       <div className={"section"} style={{ backgroundImage: `url(${BookBackground})` }}>
         <div className={"page"}>
-          <Paginator />
           <div id={"spell-id"} style={{ backgroundImage: `url(${bookStatus.spellIds})` }} />
           <SpellList />
+          <Paginator />
         </div>
         <div className={"page"}>
           <SpellDetails />

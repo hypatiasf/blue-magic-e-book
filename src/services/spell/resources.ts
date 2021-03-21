@@ -65,10 +65,39 @@ const getSpellDescription = (spellId: number, spellPage: number): string => {
   if (!descriptions || !icons) loadAll();
 
   let fileName = idToFileName(spellId) + "f";
-  if (spells.special.hasOwnProperty(spellId)) {
+  if (spells.special.hasOwnProperty(spellId) && spells.special[spellId].hasOwnProperty("places")) {
     fileName += "_" + String.fromCharCode(spellPage - 1 + "a".charCodeAt(0));
   }
   return descriptions[fileName] ?? "";
+};
+
+const getSpellPageIcons = (spellId: number): string[] => {
+  if (!descriptions || !icons) loadAll();
+
+  const spellPageIcons = [];
+  if (spells.special.hasOwnProperty(spellId) && spells.special[spellId].hasOwnProperty("places")) {
+    for (const place of spells.special[spellId].places ?? []) {
+      switch (place) {
+        case "BlackShroud":
+          spellPageIcons.push(icons["gc_fr"]);
+          break;
+        case "Dungeon":
+          spellPageIcons.push(icons["dungeon"]);
+          break;
+        case "Field":
+          spellPageIcons.push(icons["field"]);
+          break;
+        case "LaNoscea":
+          spellPageIcons.push(icons["gc_oc"]);
+          break;
+        case "Thanalan":
+          spellPageIcons.push(icons["gc_ds"]);
+          break;
+      }
+    }
+  }
+
+  return spellPageIcons;
 };
 
 const getDerivativeDescription = (spellId: number): string => {
@@ -78,4 +107,11 @@ const getDerivativeDescription = (spellId: number): string => {
     : "";
 };
 
-export { getPageNumberIcons, getSpellIcons, getSpellIds, getSpellDescription, getDerivativeDescription };
+export {
+  getPageNumberIcons,
+  getSpellIcons,
+  getSpellIds,
+  getSpellDescription,
+  getSpellPageIcons,
+  getDerivativeDescription,
+};

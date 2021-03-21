@@ -5,7 +5,6 @@
   position: absolute;
   top: 104px;
   left: 151px;
-  z-index: 2;
 
   display: grid;
   grid-template-columns: repeat(10, 24px);

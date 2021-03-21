@@ -4,6 +4,7 @@ import {
   getDerivativeDescription,
   getPageNumberIcons,
   getSpellDescription,
+  getSpellPageIcons,
   getSpellIds,
   getSpellIcons,
   SpellIcons,
@@ -18,6 +19,7 @@ export interface BookStatus {
   pageNumberIcons: string[];
   spellIcons: SpellIcons;
   spellIds: string;
+  spellPageIcons: string[];
   descriptionSrc: string;
   derivativeSrc: string;
 
@@ -32,13 +34,14 @@ const useBookStatus = (): BookStatus => {
   const initialViewSpell: ViewSpell = { id: -1, page: initialPage };
   const initialDerivativeOpen = false;
 
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(initialPage);
   const [viewSpell, setViewSpell] = useState<ViewSpell>(initialViewSpell);
   const [derivativeOpen, setDerivativeOpen] = useState(initialDerivativeOpen);
 
   const [pageNumberIcons, setPageNumberIcons] = useState<string[]>([]);
   const [spellIcons, setSpellIcons] = useState<SpellIcons>({});
   const [spellIds, setSpellIds] = useState(getSpellIds(initialPage));
+  const [spellPageIcons, setSpellPageIcons] = useState<string[]>([]);
   const [descriptionSrc, setDescriptionSrc] = useState("");
   const [derivativeSrc, setDerivativeSrc] = useState("");
 
@@ -52,10 +55,12 @@ const useBookStatus = (): BookStatus => {
     setPageNumberIcons(getPageNumberIcons(page));
     setSpellIcons(getSpellIcons(firstIcon, lastIcon));
     setSpellIds(getSpellIds(page));
+    setSpellPageIcons([]);
   };
 
   const switchToSpell = (spellId: number) => {
     setViewSpell({ ...initialViewSpell, id: spellId });
+    setSpellPageIcons(getSpellPageIcons(spellId));
   };
 
   const goToSpellPage = (spellPage: number) => {
@@ -83,6 +88,7 @@ const useBookStatus = (): BookStatus => {
     pageNumberIcons,
     spellIcons,
     spellIds,
+    spellPageIcons,
     descriptionSrc,
     derivativeSrc,
 

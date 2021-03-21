@@ -18,7 +18,7 @@ const spells: Spells = {
   number: 104,
   special: {
     11: { places: ["Field", "Dungeon"] },
-    17: { places: ["Dungeon", "BlackShroud", "Thanalan", "Dungeon", "Dungeon"] },
+    17: { places: ["LaNoscea", "Thanalan", "BlackShroud", "Dungeon", "Dungeon"] },
     18: { places: ["Field", "Dungeon"] },
     19: { places: ["Field", "Dungeon"] },
     21: { places: ["Field", "Dungeon", "Dungeon"] },

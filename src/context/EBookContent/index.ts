@@ -10,6 +10,7 @@ const EBookContext = React.createContext<BookStatus>({
   pageNumberIcons: [],
   spellIcons: {},
   spellIds: "",
+  spellPageIcons: [],
   goToPage(page: number): void {
     page;
   },
