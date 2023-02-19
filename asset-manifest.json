@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/blue-magic-e-book/static/css/main.d4a1fd92.chunk.css",
-    "main.js": "/blue-magic-e-book/static/js/main.31ab039b.chunk.js",
-    "main.js.map": "/blue-magic-e-book/static/js/main.31ab039b.chunk.js.map",
+    "main.js": "/blue-magic-e-book/static/js/main.ded5003a.chunk.js",
+    "main.js.map": "/blue-magic-e-book/static/js/main.ded5003a.chunk.js.map",
     "runtime-main.js": "/blue-magic-e-book/static/js/runtime-main.c95c41b9.js",
     "runtime-main.js.map": "/blue-magic-e-book/static/js/runtime-main.c95c41b9.js.map",
     "static/js/2.c24ad1e7.chunk.js": "/blue-magic-e-book/static/js/2.c24ad1e7.chunk.js",
@@ -202,6 +202,7 @@
     "static/media/87f.png": "/blue-magic-e-book/static/media/87f.48dad43a.png",
     "static/media/88f.png": "/blue-magic-e-book/static/media/88f.60373b6c.png",
     "static/media/89f.png": "/blue-magic-e-book/static/media/89f.8c1f9ab8.png",
+    "static/media/89t.png": "/blue-magic-e-book/static/media/89t.edc26f1b.png",
     "static/media/90f.png": "/blue-magic-e-book/static/media/90f.e6295c12.png",
     "static/media/91f.png": "/blue-magic-e-book/static/media/91f.6a6217d8.png",
     "static/media/92f.png": "/blue-magic-e-book/static/media/92f.e6d54f90.png",
@@ -258,6 +259,6 @@
     "static/js/runtime-main.c95c41b9.js",
     "static/js/2.c24ad1e7.chunk.js",
     "static/css/main.d4a1fd92.chunk.css",
-    "static/js/main.31ab039b.chunk.js"
+    "static/js/main.ded5003a.chunk.js"
   ]
 }
