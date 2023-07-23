@@ -13,9 +13,9 @@ interface SpellDetails {
 }
 
 const spells: Spells = {
-  page: 7,
+  page: 8,
   spellsPerPage: 16,
-  number: 104,
+  number: 124,
   special: {
     11: { places: ["Field", "Dungeon"] },
     17: { places: ["LaNoscea", "Thanalan", "BlackShroud", "Dungeon", "Dungeon"] },
